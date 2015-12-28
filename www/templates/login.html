@@ -1,0 +1,27 @@
+<ion-view>
+    <ion-content class="login-main">
+        <div class="app-logo-container">
+          <div><img src="https://s3.amazonaws.com/upload.uxpin/files/396630/400290/FoodLogiQ_Logo_white320px.png"/></div>
+        </div>
+        <form>
+            <ion-list>
+                <ion-item class="item-input validate-item" ng-class="{'error' : errorsLogin.email}">
+                    <ion-md-input type="email" placeholder="Email" ng-model="loginData.email.value"></ion-md-input>
+                </ion-item>
+                <ion-item class="item-input validate-item" ng-class="{'error' : errorsLogin.password}">
+                    <ion-md-input type="password" placeholder="Password" ng-model="loginData.password.value"></ion-md-input>
+                </ion-item>
+                <h3 class="error-text" ng-repeat="err in errorsLogin track by $index" ng-if="!$index">{{err}}</h3>             
+                <ion-item class="login-button-container">
+                    <button class="button button-block button-light" ng-click="doLogin();">Log in</button>
+                </ion-item>
+            </ion-list>
+        </form>
+    </ion-content>
+  <ion-footer-bar class="login-footer hide-on-keyboard-open">
+    <div class="login-footer-buttons">
+      <button class="button button-clear">Privacy Policy</button>
+      <button class="button button-clear">Terms of Use</button>
+    </div>
+  </ion-footer-bar>
+</ion-view>

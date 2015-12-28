@@ -1,0 +1,45 @@
+.custom-menu{
+    .item-content{
+        border: none;
+    }
+    .item{
+        border: none;
+    }
+    .item-icon-left{
+        .item-content{
+            padding-left: 70px;
+        }
+        img{
+            width: 25px;
+            height: 20px;
+            top: 15px;
+        }
+        .icon{
+            font-size: 27px;
+        }
+    }
+    .menu-profile-items{
+        .item-avatar{
+            img{
+                border-radius: 100px;
+            }
+            h2{
+                font-weight: bold;
+                color: #fff;
+            }
+            p{
+                color: #fff;
+            }
+        }
+        
+    }
+    .menu-main-items{
+        border-top: 2px solid #fff;
+        padding: 10px 0px 5px 0px;
+        
+    }
+    .menu-sub-items{
+        border-top: 1px solid #fff;
+        padding: 10px 0px 5px 0px;
+    }
+}

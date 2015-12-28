@@ -1,0 +1,98 @@
+// Login Page
+.login-main{
+    background-color: $primary-color;
+    padding:0px 45px;
+    bottom:0px !important;
+    .item-md-label{
+        .input-label{
+            color: #fff;
+        }
+        input {
+            color: #fff;
+            letter-spacing: 0.1rem;
+        }
+    }
+    .app-logo-container{
+        background-color: $primary-color;
+        text-align: center;
+        margin-top: 20px;
+        height:25vh;
+        position: relative;
+        display:table;
+        width:100%;
+        div{
+            width: 100%;
+            display: table-cell;
+            vertical-align: middle;
+            img{
+                width: 100%;
+            }
+        }
+    }
+    .login-button-container{
+        border: none;
+        text-align: center;
+        padding:10px 0px;
+        background-color: $primary-color;
+    }
+
+    .forgot-email-item {
+        margin: 17px;
+        border: 1px solid #ddd;
+        background-color: $primary-color;
+    }
+    .item-checkbox{
+        border: none;
+        padding: 7px 10px 7px 60px;
+        margin-top: 15px;
+        background-color: $primary-color;
+    }
+    .validate-item {
+        background-color: $primary-color;
+        border-collapse: collapse;
+        margin: 1px;
+        padding: 2px 0px;
+        ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+            color:    #fff;
+        }
+        :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color:    #fff;
+            opacity:  1;
+        }
+        ::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color:    #fff;
+            opacity:  1;
+        }
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color:    #fff;
+        }
+    }
+    .button-light{
+        margin-top: 30px;
+        background: transparent;
+        border: 2px solid #fff;
+        color: #fff;
+        height: 40px;
+        min-height: 40px;
+        line-height: 30px;
+    }
+    .button-light.activated{
+        background: $primary-active-color;
+    }
+}
+.login-footer{
+    background-color: $primary-color;
+    text-align: center;
+    padding:0px 50px;
+    border:none;
+    box-shadow: none;
+    .login-footer-buttons{
+        text-align: center;
+        width:100%;
+        .button{
+            color: #fff;
+            width: 45%;
+            font-size: 15px;
+        }
+    }
+}

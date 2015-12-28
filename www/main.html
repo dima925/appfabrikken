@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+
+    <!-- compiled css output -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+    
+    <link href="css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/font-awesome-4.2.0/css/font-awesome.min.css"/>
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/jquery/jquery.min.js"></script>
+    
+    <!-- canvas resize -->
+    <script src="lib/exif.js"></script>
+    <script src="lib/jquery.canvasResize_custom.js"></script>
+    <script src="lib/canvasResize.js"></script>
+    <script src="lib/megapix-image.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="lib/moment/moment.js"></script>
+    <script src="lib/angular-ios9-uiwebview-patch/angular-ios9-uiwebview-patch.js"></script>
+    
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/Constants.js"></script>
+    <script src="js/controllers/controllers.js"></script>
+    <script src="js/controllers/AppCtrl.js"></script>
+    <script src="js/controllers/LoginCtrl.js"></script>
+    <script src="js/controllers/MainmenusCtrl.js"></script>
+    
+    <!-- Services -->
+    <script src="js/services/services.js"></script>
+    <script src="js/services/Tools.js"></script>
+    <script src="js/services/Api.js"></script>
+    <script src="js/services/Push.js"></script>
+    <script src="js/services/Session.js"></script>
+    <script src="js/services/Storage.js"></script>
+    <script src="js/services/Camera.js"></script>    
+    <script src="js/services/BarcodeScan.js"></script>    
+    <script src="js/services/Request.js"></script>    
+    <!-- Directive -->
+    <script src="js/directives/directives.js"></script>
+    <script src="js/directives/convertToNumber.js"></script>
+    <script src="js/directives/convertToDate.js"></script>
+    <script src="js/directives/fomateTimeSheet.js"></script>
+    <script src="js/directives/timeSheetBox.js"></script>
+    <script src="js/directives/imageUploader.js"></script>
+    <!-- Filters -->
+    <script src="js/filters/filters.js"></script>
+    <script src="js/filters/timefomate.js"></script>
+    <!-- helper functions -->
+    <script src="js/helpers.js"></script>
+  </head>
+
+  <body ng-app="myApp">
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>

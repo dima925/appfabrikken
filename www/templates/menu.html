@@ -1,0 +1,64 @@
+<ion-side-menus enable-menu-with-back-views="true">
+  <ion-side-menu-content>
+    <ion-nav-bar>
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-content class="custom-menu">
+      <ion-list>
+        <div class="menu-profile-items">
+          <ion-item class="item item-avatar">
+            <img src="img/perry.png"/>
+            <h2>Anatoly Sokolov</h2>
+            <p>anatolysokolov824@gmail.com</p>
+          </ion-item>
+        </div>        
+        
+        <div class="menu-main-items">
+          <ion-item class="item-icon-left menu-user-info" menu-close href="#/app/receipts">
+            <img src="img/receive.png" class="icon"/>Receipts
+          </ion-item>
+          <ion-item class="item-icon-left" menu-close href="#/app/shipments">
+            <img src="img/shippment.png" class="icon"/>Shipments
+          </ion-item>
+          <ion-item class="item-icon-left" menu-close href="#/app/transformations">
+            <img src="img/transform.png" class="icon"/>Transformations
+          </ion-item>
+          <ion-item class="item-icon-left" menu-close href="#/app/incidents">
+            <i class="icon ion-alert-circled"></i>Food Quality Incidents
+          </ion-item>
+          <ion-item class="item-icon-left" menu-close href="#/app/audits">
+            <i class="icon ion-clipboard"></i>2nd Party Audits
+          </ion-item>
+        </div>
+        
+        <div class="menu-sub-items">
+          <ion-item class="item-icon-left" menu-close href="#/businesses">
+            <i class="icon ion-disc"></i>Select Business
+          </ion-item>
+          <ion-item class="item-icon-left" menu-close href="#/locations">
+            <i class="icon ion-ios-location"></i>Select Location
+          </ion-item>
+          <ion-item class="item-icon-left" menu-close href="#/app/devicelog">
+            <i class="icon ion-ios-list-outline"></i>Device Log
+          </ion-item>
+          <ion-item class="item-icon-left" menu-close href="#/app/setting">
+            <i class="icon ion-gear-b"></i>Settings
+          </ion-item>
+          <ion-item class="item-icon-left" ng-click="logout()" href="#/login">
+            <i class="icon ion-log-out"></i>Sign Out
+          </ion-item>
+        </div>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
