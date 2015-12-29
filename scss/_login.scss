@@ -1,8 +1,12 @@
 // Login Page
 .login-main{
-    background-color: $primary-color;
+    background-color: $menu-color;
     padding:0px 45px;
     bottom:0px !important;
+    input {
+        color: #fff;
+        letter-spacing: 0.1rem;
+    }
     .item-md-label{
         .input-label{
             color: #fff;
@@ -13,7 +17,7 @@
         }
     }
     .app-logo-container{
-        background-color: $primary-color;
+        background-color: $menu-color;
         text-align: center;
         margin-top: 20px;
         height:25vh;
@@ -21,34 +25,33 @@
         display:table;
         width:100%;
         div{
+            color: #fff;
             width: 100%;
             display: table-cell;
             vertical-align: middle;
-            img{
-                width: 100%;
-            }
+            font-size: 30px;
         }
     }
     .login-button-container{
         border: none;
         text-align: center;
         padding:10px 0px;
-        background-color: $primary-color;
+        background-color: $menu-color;
     }
 
     .forgot-email-item {
         margin: 17px;
         border: 1px solid #ddd;
-        background-color: $primary-color;
+        background-color: $menu-color;
     }
     .item-checkbox{
         border: none;
         padding: 7px 10px 7px 60px;
         margin-top: 15px;
-        background-color: $primary-color;
+        background-color: $menu-color;
     }
     .validate-item {
-        background-color: $primary-color;
+        background-color: $menu-color;
         border-collapse: collapse;
         margin: 1px;
         padding: 2px 0px;

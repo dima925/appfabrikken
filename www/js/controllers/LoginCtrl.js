@@ -20,7 +20,8 @@ angular.module('starter.controllers.login', []).controller('LoginCtrl', function
         // Perform Login api
         Api.login(loginData).then(function (dataUser) {
           $ionicLoading.hide()
-          Tools.changePage('businesses', true);
+          console.log(dataUser);
+          Tools.changePage('mainmenus', true);
         }, function (err) {
           if(is_Null(err)) err = "Invalided User";
           $scope.errorsLogin = [err];

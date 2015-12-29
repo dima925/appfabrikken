@@ -1,9 +1,7 @@
 angular.module('starter.constants', [])
   .constant('Constants', {
-    API_URL: 'https://connect-api-review.foodlogiq.com/',
-    API_BIZ_URL: 'https://connect-api-review.foodlogiq.com/businesses/',
-    AUTH_URL: 'https://connect-api-review.foodlogiq.com/oauth_accesstoken',
-    APP_NAME: 'FoodLogiQ',
+    FB_URL: 'https://appfabrikken.firebaseio.com/',
+    APP_NAME: 'AppFabrikken',
     // The App ID (from apps.ionic.io) for the server
     IONIC_APP_ID: 'af475e6f',
     // The public API key all services will use for this app

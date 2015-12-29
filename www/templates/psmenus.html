@@ -1,0 +1,9 @@
+<ion-view title="{{selectedItem.navbar_title||'Select Item'}}" class="main-page">
+  <ion-content class="menu-container">
+      <ion-item class="item-avatar" ng-repeat="m in menus" ng-click="select(m.$id, m)">
+        <h2>{{m.text}}</h2>
+        <p>{{m.name}}</p>
+      </ion-item>
+    <div class="footer-text-container" ng-bind-html="selectedItem.footer_text"></div>
+  </ion-content>
+</ion-view>

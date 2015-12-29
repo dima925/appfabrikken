@@ -75,7 +75,7 @@
                 errors[i] = "Bad email";
             }
             if (dataForm[i].type == 'password' && errors[i] == undefined) {
-              if (dataForm[i].value.length < 4)
+              if (dataForm[i].value.length < 1)
                 errors[i] = "Password too short";
             }
             if (dataForm[i].type == 'passwordconfirm' && errors[i] == undefined) {

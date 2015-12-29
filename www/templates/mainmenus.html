@@ -1,12 +1,8 @@
 <ion-view title="Select Menus" hide-back-button="true" class="main-page">
-  <ion-content class="business-container">
-    <div class="card" ng-repeat="b in businesses">
-      <ion-item class="item-avatar" ng-click="select(b._id)">
-        <img ng-src="{{b.iconURL}}"/>
-        <h2>{{b.name}}</h2>
-        <p>{{b.email}}</p>
+  <ion-content class="menu-container">
+      <ion-item class="item-avatar" ng-repeat="m in mainmenus" ng-click="select(m.$id, m)">
+        <h2>{{m.title}}</h2>
+        <p>{{m.name}}</p>
       </ion-item>
-    </div>
-
   </ion-content>
 </ion-view>

@@ -1,95 +1,61 @@
 (function () {
   angular.module('starter.services.Api', [])
-          .factory('Api', function ($http, $q, Constants, Storage, Session, Request) {
+          .factory('Api', function ($http, $q, Constants, $firebaseArray, Session, $firebaseObject) {
 
             var Api = {
-              bisUrl:'businesses/' + Session.businessesId() + '/',
-              setAuthorization: function (token) {
-                $http.defaults.headers.common = {
-                  Authorization: token,
-                  // "Content-Type" : "multipart/form-data"
-                };
-              },
               login: function (user) {
                 var deferred = $q.defer();
-                $http({url: Constants.AUTH_URL,
-                  method: 'POST',
-                  data: user,
-                  headers: {'Content-Type': 'application/json; charset=utf-8'}
-                }).then(function (response) {
-                  console.log(response);
-                  if(response.status == 200) Session.setToken(response.data.accessToken);
-                  deferred.resolve(response);
-                }, function (err) {
-                  deferred.reject(err.data);
-                });
-                return deferred.promise;
-              },
-              loginCheck: function () {
-                var deferred = $q.defer();
-                var user = Session.user();
-                Request.PostRequest('loginCheck', {id: user.userid}).then(function (user) {
-                  if (user.status == 'OK') {
-                    Session.setUser(user.result);
+                var firebaseUrl = Constants.FB_URL;
+                var ref = new Firebase(firebaseUrl);
+                
+                ref.authWithPassword(user, function(error, authData) {
+                  if (error) {
+                    deferred.reject(error.code);
+                  } else {
+                    deferred.resolve(authData);
                   }
-                  deferred.resolve(user.result);
-                }, function (err) {
-                  deferred.reject({error: err.error});
                 });
+                
                 return deferred.promise;
               },
-              getBisinesses: function () {
+              getMainMenu: function () {
                 var deferred = $q.defer();
-                Request.getRequest('businesses').then(function (data) {
+                var firebaseUrl = Constants.FB_URL + 'menus/';
+                var ref = new Firebase(firebaseUrl);
+                
+                $firebaseArray(ref).$loaded(function(data) {
+                  var mainMenus = data;
                   console.log(data);
-                  deferred.resolve(data);
-                }, function (err) {
-                  deferred.reject({error: err.error});
-                });
+                  deferred.resolve(mainMenus);
+                }, function(error) {
+                  deferred.reject({error: error.code});
+                }); 
                 return deferred.promise;
               },
-              uploadImage:function(fileURL, incidentId){
+              getArray: function (url) {
                 var deferred = $q.defer();
-                var uri = encodeURI('businesses/' + Session.businessesId() + '/incidents/'+incidentId+'/updateimages');
-                var options = new FileUploadOptions();
-                options.fileKey="file";
-                options.fileName=fileURL.substr(fileURL.lastIndexOf('/')+1);
-                options.mimeType="image/jpeg";
-
-                var headers={'Authorization':'Bearer ' + Session.token()};
-
-                options.headers = headers;
-
-                var ft = new FileTransfer();
-                ft.upload(fileURL, uri, function(data){
-                    deferred.resolve(data);
-                }, function(err){
-                    deferred.reject({error: err});
-                }, options);
-              },
-              getLocations: function () {
-                var deferred = $q.defer();
-                Request.getRequest('businesses/' + Session.businessesId() + '/locations').then(function (data) {
+                var ref = new Firebase(url);
+                
+                $firebaseArray(ref).$loaded(function(data) {
+                  var array = data;
                   console.log(data);
-                  deferred.resolve(data);
-                }, function (err) {
-                  deferred.reject({error: err.error});
-                });
+                  deferred.resolve(array);
+                }, function(error) {
+                  deferred.reject({error: error.code});
+                }); 
                 return deferred.promise;
               },
-              createIncident: function(data){
+              getObject: function (url) {
                 var deferred = $q.defer();
-                if(Session.businessesId()){
-                  Request.PostRequest('businesses/' + Session.businessesId() + '/incidents', data).then(function (respdata) {
-                    console.log(respdata);
-                    deferred.resolve(respdata.result);
-                  }, function (err) {
-                    console.log(err);
-                    deferred.reject({error: err});
-                  });
-                }else{
-                  deferred.resolve(respdata.result);
-                }                
+                var ref = new Firebase(url);
+                
+                $firebaseObject(ref).$loaded(function(data) {
+                  var array = data;
+                  console.log(data);
+                  deferred.resolve(array);
+                }, function(error) {
+                  deferred.reject({error: error.code});
+                }); 
                 return deferred.promise;
               }
             };

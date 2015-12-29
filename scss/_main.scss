@@ -3,3 +3,19 @@
 /* ---------------------------*/
 
 /* Components */
+.error{
+    border-color: red !important;
+}
+.validate-item{
+    border: none;
+    border-bottom: 1px solid #ddd;
+    border-collapse: collapse;
+    margin: 0px;
+}
+.error-text{
+    color: red;
+    font-size: 15px;
+    text-align: center;
+    height: 10px;
+    margin: 10px;
+}
