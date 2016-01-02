@@ -1,0 +1,12 @@
+<ion-view>
+  <ion-nav-title>{{context.navbar_title}}</ion-nav-title>
+  <ion-content class="menu-container">
+      <ion-item class="item-avatar item-icon-right" ng-repeat="m in menus" ng-click="select(m.$id, m)">
+        <img src="img/perry.png"/>
+        <h2>{{m.text}}</h2>
+        <p>Type : {{m.type}}</p>
+        <i class="icon ion-ios-arrow-right" ng-if="m.type=='menu'"></i>
+      </ion-item>
+    <div class="footer-text-container" ng-bind-html="context.text"></div>
+  </ion-content>
+</ion-view>

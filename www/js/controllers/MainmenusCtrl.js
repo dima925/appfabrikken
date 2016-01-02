@@ -1,7 +1,9 @@
-angular.module('starter.controllers.mainmenus', []).controller('MainmenusCtrl', function ($scope, $ionicLoading, $state, Api, Constants, $rootScope) {
+angular.module('starter.controllers.mainmenus', []).controller('MainmenusCtrl', function ($scope, $ionicLoading, $state, Api, Constants, $rootScope, Tools) {
   $scope.mainmenus = [];
   $ionicLoading.show();
   $rootScope.selectedItem = {};
+  $rootScope.defaultStyle = {navbarBgColor:'#f7f7f8', navbarTextColor:'#000', pageBgColor:'#EFEFF4'};
+  Tools.changeCustomStyle({});
   Api.getMainMenu().then(function (data) {
     $ionicLoading.hide();
     $scope.mainmenus = data;
@@ -12,9 +14,7 @@ angular.module('starter.controllers.mainmenus', []).controller('MainmenusCtrl', 
   });
   
   $scope.select = function(id, item){
-    var url = Constants.FB_URL + 'menus/' + id + '/items/';
-    $rootScope.selectedItem.navbar_title = item.title;
-    $rootScope.selectedItem.footer_text = item.footer_text;
-    $state.go('psmenus', {url:url});
+    var url = Constants.FB_URL + 'menus/' + id;
+    $state.go('psmenus1', {url:url});
   };
 });

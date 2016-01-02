@@ -54,10 +54,35 @@ angular.module('myApp', [
                     templateUrl: 'templates/mainmenus.html',
                     controller: 'MainmenusCtrl'
                   })
-                  .state('psmenus', {
-                    url: '/psmenus?url',
-                    templateUrl: 'templates/psmenus.html',
-                    controller: 'PersonalmenusCtrl'
+                  .state('psmenus1', {
+                    url: '/psmenus1?url',
+                    templateUrl: 'templates/psmenus1.html',
+                    controller: 'PersonalmenusCtrl_1'
+                  })
+                  .state('psmenus2', {
+                    url: '/psmenus2?url',
+                    templateUrl: 'templates/psmenus2.html',
+                    controller: 'PersonalmenusCtrl_2'
+                  })
+                  .state('psmenus3', {
+                    url: '/psmenus3?url',
+                    templateUrl: 'templates/psmenus3.html',
+                    controller: 'PersonalmenusCtrl_3'
+                  })
+                  .state('psmenus4', {
+                    url: '/psmenus4?url',
+                    templateUrl: 'templates/psmenus4.html',
+                    controller: 'PersonalmenusCtrl_4'
+                  })
+                  .state('psmenus5', {
+                    url: '/psmenus5?url',
+                    templateUrl: 'templates/psmenus5.html',
+                    controller: 'PersonalmenusCtrl_5'
+                  })
+                  .state('pageview', {
+                    url: '/pageview?url',
+                    templateUrl: 'templates/pageview.html',
+                    controller: 'PageviewCtrl'
                   });
           // if none of the above states are matched, use this as the fallback
 //  $urlRouterProvider.otherwise('/login');

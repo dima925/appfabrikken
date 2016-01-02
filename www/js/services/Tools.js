@@ -87,6 +87,23 @@
         }
         callback.call(this, errors, data);
       },
+      changeCustomStyle: function(style){
+        var customStyle = {};
+        if(!is_Null(style)){
+          customStyle.navbarBgColor = style.navbarBgColor || $rootScope.defaultStyle.navbarBgColor;
+          customStyle.navbarTextColor = style.navbarTextColor || $rootScope.defaultStyle.navbarTextColor;
+          customStyle.pageBgColor = style.pageBgColor || $rootScope.defaultStyle.pageBgColor;
+        }
+        console.log(customStyle);
+        $('.bar-header').css({'background': customStyle.navbarBgColor});
+        if(customStyle.navbarBgColor != $rootScope.defaultStyle.navbarBgColor){
+          $('.bar-header').css({'borderBottom': customStyle.navbarBgColor});
+        }else{
+          $('.bar-header').css({'borderBottom': '1px solid #ddd'});
+        }
+        $('.bar-header').css({'color': customStyle.navbarTextColor});
+        $('.scroll-content').css({'background': customStyle.pageBgColor});
+      },
       checkUserInfo: function (dataForm, callback) {
         var validData = [
           {key: 'uInfoName', value: 'Please enter your name.', type: 'text'},

@@ -26,6 +26,9 @@
   height: 10px;
   margin: 10px; }
 
+.button-clear {
+  color: #007aff; }
+
 /** define svg icons style */
 .svg-icon {
   background-size: contain;

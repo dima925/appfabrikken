@@ -53,6 +53,15 @@ function convertNumToTimeFormate(value) {
   return resultString;
 }
 
+function convertObjectToArray(obj) {
+  var arr = $.map(obj, function (value, index) {
+    if(!is_Null(value))value.id = index;
+    return [value];
+  });
+
+  return arr;
+}
+
 function is_Null(value) {
 
   if (value === "" || value === undefined || value === null) {
@@ -63,9 +72,9 @@ function is_Null(value) {
         return true;
       else
         return false;
-    }else{
+    } else {
       return false;
     }
   }
-  
+
 }
