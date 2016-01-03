@@ -186,6 +186,19 @@
       stopEventPropagation: function (e) {
         e.stopPropagation();
       },
+      select : function (id, item, pageurl) {
+        console.log('item', item);
+        var url = pageurl + '/items/' + id;
+        if (item.type === 'page') {
+          $state.go('pageview', {url: url, pageid: item.pageId});
+        } else {
+          if (!is_Null(item.items)) {
+            $state.go('psmenus2', {url: url});
+          }else{
+            alert("There is no any content.");
+          }
+        }
+      }
     };
 
   });

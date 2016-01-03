@@ -1,8 +1,11 @@
 <ion-view title="Select Menus" hide-back-button="true" class="main-page">
   <ion-content class="menu-container">
       <ion-item class="item-avatar" ng-repeat="m in mainmenus" ng-click="select(m.$id, m)">
+        <img ng-src="{{'img/menu-icon.png'}}"/>
         <h2>{{m.title}}</h2>
         <p>{{m.name}}</p>
+        <div class="hide-border-item" ng-class="{'hide-border-item-last':$last}"></div>
       </ion-item>
   </ion-content>
+  <my-up-scroller></my-up-scroller>
 </ion-view>

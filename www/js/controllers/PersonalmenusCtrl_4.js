@@ -2,6 +2,7 @@ angular.module('starter.controllers.psmenus4', []).controller('PersonalmenusCtrl
   $scope.menus = [];
   
   $scope.url = $stateParams.url;
+  $scope.Tools = Tools;
   $rootScope.selectedItem = $rootScope.selectedItem || {};
   $ionicLoading.show();
   var itemsRef = new Firebase($scope.url + '/items');
@@ -22,6 +23,7 @@ angular.module('starter.controllers.psmenus4', []).controller('PersonalmenusCtrl
     console.log('item', item);
     if (item.type == 'page') {
       var url = Constants.FB_URL + '/pages/' + item.pageId;
+      Tools.changeCustomStyle(item.customstyle);    
       $state.go('pageview', {url: url});
     } else {
       if (!is_Null(item.items)) {

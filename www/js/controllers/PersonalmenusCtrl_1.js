@@ -1,7 +1,8 @@
-angular.module('starter.controllers.psmenus1', []).controller('PersonalmenusCtrl_1', function ($scope, $ionicLoading, $stateParams, Api, Constants, $rootScope, $state, Tools, $firebaseArray, $firebaseObject) {
+angular.module('starter.controllers.psmenus1', []).controller('PersonalmenusCtrl_1', function ($scope, $ionicLoading, $stateParams, Api, Constants, $rootScope, $state, Tools, $firebaseArray, $firebaseObject, $ionicScrollDelegate) {
   $scope.menus = [];
   
   $scope.url = $stateParams.url;
+  $scope.Tools = Tools;
   $rootScope.selectedItem = $rootScope.selectedItem || {};
   $ionicLoading.show();
   var itemsRef = new Firebase($scope.url + '/items');
@@ -18,20 +19,6 @@ angular.module('starter.controllers.psmenus1', []).controller('PersonalmenusCtrl
     $ionicLoading.hide();
   });
   
-  $scope.select = function (id, item) {
-    console.log('item', item);
-    if (item.type == 'page') {
-      var url = Constants.FB_URL + '/pages/' + item.pageId;
-      $state.go('pageview', {url: url});
-    } else {
-      if (!is_Null(item.items)) {
-        var url = $scope.url + '/items/' + id;
-        $state.go('psmenus2', {url: url});
-      }else{
-        alert("There is no any content.");
-      }
-    }
-  };
   $firebaseObject(styleRef).$watch(function(data) {
     $firebaseObject(styleRef).$bindTo($scope, "customstyle").then(function() {
       Tools.changeCustomStyle($scope.customstyle);      

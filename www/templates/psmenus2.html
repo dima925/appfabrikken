@@ -1,12 +1,17 @@
 <ion-view>
   <ion-nav-title>{{context.navbar_title}}</ion-nav-title>
   <ion-content class="menu-container">
-      <ion-item class="item-avatar item-icon-right" ng-repeat="m in menus" ng-click="select(m.$id, m)">
-        <img src="img/perry.png"/>
+    <div class="list-item-container">
+      <ion-item class="item-avatar item-icon-right" ng-repeat="m in menus" ng-click="Tools.select(m.$id, m, url)">
+        <img ng-src="{{(m.type=='menu')?'img/menu-icon.png':'img/PagesIcon.png'}}"/>
         <h2>{{m.text}}</h2>
         <p>Type : {{m.type}}</p>
         <i class="icon ion-ios-arrow-right" ng-if="m.type=='menu'"></i>
+        <div class="hide-border-item" ng-class="{'hide-border-item-last':$last}"></div>
       </ion-item>
+    </div>
+    <div class="footer-text-header">Text</div>
     <div class="footer-text-container" ng-bind-html="context.text"></div>
   </ion-content>
+  <my-up-scroller></my-up-scroller>
 </ion-view>

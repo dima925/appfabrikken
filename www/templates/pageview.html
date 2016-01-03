@@ -1,6 +1,8 @@
-<ion-view title="{{page.navbarTitle||'Select Item'}}" class="main-page">
+<ion-view>
+  <ion-nav-title>{{pageinfo.navbar_title}}</ion-nav-title>
   <ion-content class="menu-container">
-    <div class="footer-text-container">{{page.title}}</div>
-    <div class="footer-text-container" bind-html-unsafe="page.content"></div>
+    <div class="footer-text-title">{{page.title}}</div>
+    <div class="footer-text-container" bind-html-unsafe="page.content" ng-if="page.content"></div>
   </ion-content>
+  <my-up-scroller></my-up-scroller>
 </ion-view>

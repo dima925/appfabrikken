@@ -80,7 +80,7 @@ angular.module('myApp', [
                     controller: 'PersonalmenusCtrl_5'
                   })
                   .state('pageview', {
-                    url: '/pageview?url',
+                    url: '/pageview?url&pageid',
                     templateUrl: 'templates/pageview.html',
                     controller: 'PageviewCtrl'
                   });

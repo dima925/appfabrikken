@@ -1,31 +1,44 @@
-angular.module('starter.controllers.pageview', []).controller('PageviewCtrl', function ($scope, $ionicLoading, $stateParams, Api, Tools, $rootScope, $state) {
+angular.module('starter.controllers.pageview', []).controller('PageviewCtrl', function ($scope, $ionicLoading, $stateParams, Api, Tools, Constants, $state, $firebaseObject) {
   $scope.menus = [];
   $scope.url = $stateParams.url;
-  $ionicLoading.show();
-  Api.getObject($scope.url).then(function (data) {
-    $ionicLoading.hide();
-    $scope.page = data;
-    (!is_Null(data.customstyle))? Tools.changeCustomStyle(data.customstyle) : Tools.changeCustomStyle({});
-    console.log(data);
-  }, function (err) {
-    if(is_Null(err)) err = "Invalided User";
-    $scope.errorsLogin = [err];
-    $ionicLoading.hide();
-  });
-  
-  $scope.select = function (id, item) {
-    console.log('item', item);
-    if (item.type == 'page') {
+  $scope.pageId = $stateParams.pageid;
+  $scope.page = {};
+  $scope.pageinfo = {};
+  $scope.customstyle = {};
 
-    } else {
-      if (!is_Null(item.items)) {
-        var url = $scope.url + id + '/items/';
-        $rootScope.selectedItem.navbar_title = item.navbar_title;
-        $rootScope.selectedItem.footer_text = item.text;
-        $state.go('psmenus2', {url: url});
-      }else{
-        alert("There is no any content.");
-      }
-    }
-  };
+  var pageurl = Constants.FB_URL + '/pages/' + $scope.pageId;
+
+  var styleRef = new Firebase($scope.url + '/customstyle');
+  var pageRef = new Firebase($scope.url);
+  var mainRef = new Firebase(pageurl);
+  $ionicLoading.show();
+
+  $firebaseObject(styleRef).$watch(function (data) {
+    $firebaseObject(styleRef).$bindTo($scope, "customstyle").then(function () {
+      Tools.changeCustomStyle($scope.customstyle);
+    });
+  });
+  $scope.$on('$ionicView.beforeEnter', function (e) {
+    $firebaseObject(styleRef).$bindTo($scope, "customstyle");
+
+    $firebaseObject(mainRef).$bindTo($scope, "page").then(function (data) {
+      console.log('$scope.page', $scope.page);
+      $ionicLoading.hide();
+    }, function (err) {
+      if (is_Null(err))
+        err = "Invalided User";
+      $scope.errorsLogin = [err];
+      $ionicLoading.hide();
+    });
+
+    $firebaseObject(pageRef).$bindTo($scope, "pageinfo").then(function (data) {
+      console.log('$scope.pageinfo', $scope.pageinfo.navbar_title);
+      $ionicLoading.hide();
+    }, function (err) {
+      if (is_Null(err))
+        err = "Invalided User";
+      $scope.errorsLogin = [err];
+      $ionicLoading.hide();
+    });
+  });
 });
